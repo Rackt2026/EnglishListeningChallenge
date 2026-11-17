@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta name="theme-color" content="#132c49">
+<meta name="description" content="小学生からTOEFLまで9段階、各50問の4択英語リスニング学習。ブラウザ音声で聞いて、答えて、復習できます。">
+<title>ENGLISH LISTENING CHALLENGE | まなびやつばめ</title>
+<style>
+:root{--navy:#132c49;--navy2:#203d5d;--ink:#193147;--muted:#627589;--sky:#eaf6ff;--teal:#0d927f;--blue:#2365c5;--white:#fff;--line:#d9e5ec;--shadow:0 15px 50px rgba(21,57,85,.12);--radius:20px;font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,sans-serif;color:var(--ink)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:linear-gradient(165deg,#edf8ff 0%,#f8fafc 65%,#eaf9f3 100%);line-height:1.55}button,select,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.46;cursor:not-allowed}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #f4a83c;outline-offset:3px}[hidden]{display:none!important}
+.topbar{background:var(--navy);color:#fff;padding:13px 20px}.top-inner{max-width:1140px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{display:flex;align-items:center;gap:11px;font-size:16px;font-weight:900;letter-spacing:.03em}.brand-icon{background:#ffffff24;border-radius:12px;padding:7px 9px;font-size:24px}.brand small{display:block;color:#b6dbe9;font-size:10px;font-weight:500;letter-spacing:.1em}.pill-light{color:#dfedfc;background:#ffffff14;border:1px solid #ffffff38;border-radius:999px;padding:7px 12px;font-size:12px}.main{max-width:1140px;padding:24px 20px 46px;margin:0 auto}.intro{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:18px}.eyebrow{font-weight:800;letter-spacing:.13em;color:var(--teal);font-size:12px}.h1{font-size:clamp(26px,3.2vw,40px);letter-spacing:.005em;line-height:1.24;margin:7px 0 9px}.lead{color:var(--muted);font-size:14px;margin:0;max-width:670px}.summary-count{font-size:13px;color:#315775;background:#dceffa;padding:9px 13px;border-radius:10px;white-space:nowrap;font-weight:800}.setup-grid{display:grid;grid-template-columns:minmax(0,1.38fr) minmax(290px,.9fr);gap:20px;align-items:start}.surface{background:var(--white);border:1px solid #e3ecf2;box-shadow:var(--shadow);border-radius:24px}.surface-pad{padding:22px}.section-h{margin:0 0 14px;font-size:19px}.section-help{margin:-6px 0 18px;color:var(--muted);font-size:13px}.level-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.level-card{min-width:0;border:2px solid var(--line);background:#fff;border-radius:16px;padding:14px 12px;display:flex;gap:10px;text-align:left;align-items:flex-start;transition:transform .12s,border-color .12s,box-shadow .12s}.level-card:hover{transform:translateY(-2px);border-color:#8aadc7}.level-card.selected{border-color:var(--blue);background:#f1f7ff;box-shadow:0 0 0 3px #2563eb16}.level-num{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;flex-shrink:0;background:#e8f0ff;color:var(--blue);font-weight:900}.level-card.selected .level-num{background:var(--blue);color:#fff}.level-txt{min-width:0}.level-name{font-weight:900;font-size:14px;display:block}.level-sub{display:block;font-size:11.5px;color:var(--muted);margin-top:3px;line-height:1.45}.level-best{display:block;margin-top:7px;font-size:11px;color:var(--teal);font-weight:800}.setup-panel{position:sticky;top:18px}.selected-head{background:linear-gradient(115deg,var(--navy),#305a79);color:#fff;border-radius:16px;padding:15px;margin-bottom:18px}.selected-head small{color:#b9d6e8;display:block}.selected-head strong{display:block;font-size:20px;margin-top:3px}.control-title{font-size:14px;font-weight:900;margin:17px 0 8px}.control-note{color:var(--muted);font-size:12px;margin:5px 0 12px}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{border:1px solid #d7e3ea;background:#f7fafc;color:#26445b;padding:8px 12px;border-radius:12px;font-size:13px;font-weight:800}.chip.active{border-color:var(--blue);background:#e7f0ff;color:#1453ac}.chip:disabled{opacity:.35}.field{width:100%;border-radius:11px;border:1px solid #cbdce7;background:white;color:var(--ink);padding:10px 12px;min-height:42px;font-size:13px}.mode-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.mode{padding:10px 8px;font-size:12px;font-weight:800;line-height:1.5;background:#f8fafc;border:1px solid var(--line);border-radius:12px}.mode.active{background:#e9f6f2;border-color:var(--teal);color:#086b5b}.rate-line{display:flex;align-items:center;gap:10px}.rate-line input{flex:1;accent-color:var(--teal)}.rate-value{width:56px;text-align:right;font-weight:800;font-variant-numeric:tabular-nums}.setting-line{display:flex;gap:9px;align-items:center}.tiny-btn{border:1px solid #cedee9;background:#fff;color:#2d5c81;border-radius:11px;padding:9px 10px;white-space:nowrap;font-size:12px;font-weight:800}.primary{background:linear-gradient(120deg,#087f81,#0da876);color:#fff;border:0;border-radius:14px;font-weight:900;padding:14px 18px;box-shadow:0 8px 18px #0d927f35}.primary:hover:not(:disabled){filter:brightness(1.06)}.primary.blue{background:linear-gradient(120deg,#1c65c3,#284eac);box-shadow:0 7px 16px #2454af25}.primary.block{width:100%}.secondary{background:white;color:#26527e;border:1px solid #ccdce9;border-radius:14px;padding:12px 15px;font-weight:800}.start-note{font-size:11px;color:#718296;text-align:center;margin:10px 0 0}.hr{border:0;height:1px;background:#e7edf2;margin:18px 0}.small-info{font-size:12px;background:#f4f8fb;padding:12px;border-radius:12px;color:#526e84}.mini-foot{text-align:center;color:#8293a0;font-size:11px;margin:23px auto 0}
+/* Question */
+.stage{max-width:920px;margin:auto}.quiz-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.quiz-title{font-size:12px;color:var(--muted);font-weight:900}.quiz-title strong{display:block;color:var(--ink);font-size:16px}.progress-label{font-size:13px;font-weight:900;color:#35607f;text-align:right}.progress-track{background:#dce7ed;height:9px;border-radius:10px;overflow:hidden;margin-bottom:17px}.progress-fill{background:linear-gradient(90deg,#1d88cc,#0ca887);height:100%;transition:width .22s ease}.question-sheet{padding:24px}.q-number{display:inline-block;font-size:11px;font-weight:900;letter-spacing:.1em;color:#137c74;background:#e4f7ef;border-radius:999px;padding:6px 11px}.q-question{font-size:clamp(17px,2.3vw,22px);font-weight:900;margin:10px 0 18px;line-height:1.5}.audio-box{border-radius:22px;background:linear-gradient(145deg,#183d63,#13304b);color:#fff;padding:23px 16px;text-align:center;position:relative;overflow:hidden}.audio-box:before{content:'♫';position:absolute;font-size:150px;right:-20px;top:-65px;color:#ffffff08;pointer-events:none}.audio-title{font-size:11px;letter-spacing:.11em;color:#a7d2e4;font-weight:900}.audio-icon{font-size:48px;margin:8px 0}.audio-play{background:white;border:0;border-radius:13px;color:#1a5c91;font-size:18px;font-weight:900;padding:13px 28px;min-width:196px}.audio-play:hover{background:#e8f7ff}.audio-hint{color:#c2d9e9;font-size:12px;margin:12px 0 0}.sound-bars{height:32px;display:flex;align-items:center;justify-content:center;gap:5px;margin:4px 0 7px}.sound-bars b{display:block;width:5px;height:10px;background:#41dab4;border-radius:4px;opacity:.6}.sound-bars.playing b{animation:bar .55s infinite alternate ease-in-out;opacity:1}.sound-bars b:nth-child(2){animation-delay:.18s}.sound-bars b:nth-child(3){animation-delay:.35s}.sound-bars b:nth-child(4){animation-delay:.1s}.sound-bars b:nth-child(5){animation-delay:.29s}@keyframes bar{to{height:28px}}.play-count{font-size:12px;color:#e9f8ff;margin-top:9px}.choices-area{margin-top:22px}.ready-hint{background:#fff6e4;border:1px solid #f5dfa3;padding:14px;border-radius:14px;margin:14px 0 0;color:#8c5b1f;font-size:13px}.choose-label{font-size:12px;color:var(--muted);font-weight:800;margin-bottom:11px}.choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.choice{border:2px solid #dce6ef;background:#fff;display:flex;align-items:flex-start;gap:12px;border-radius:15px;padding:17px 13px;text-align:left;color:#203e58;min-width:0;min-height:96px;transition:background .14s,border-color .14s}.choice:hover:not(:disabled){background:#f4f9ff;border-color:#8fb5d7}.choice .letter{display:inline-grid;place-items:center;border-radius:11px;background:#edf3f7;color:#295578;font-weight:900;width:32px;height:32px;flex-shrink:0}.choice .choice-text{font-family:Arial,"Helvetica Neue",sans-serif;font-size:15px;line-height:1.55;overflow-wrap:anywhere}.choice.correct{border-color:#17a47a;background:#eafaf4}.choice.correct .letter{background:#09926c;color:#fff}.choice.wrong{border-color:#e77672;background:#fff0f0}.choice.wrong .letter{background:#df6660;color:#fff}.choice.picked{border-color:#287de1;background:#eef6ff}.choice.picked .letter{background:#287de1;color:white}.choice:disabled{opacity:1;cursor:default}.choice.dim{opacity:.62}.action-bottom{margin-top:19px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.feedback{padding:17px;border-radius:16px;border:1px solid #d5e8dd;background:#f0fbf5;margin-top:16px}.feedback.bad{background:#fff7ef;border-color:#f1d7bd}.feedback.neutral{background:#f2f8ff;border-color:#d0e3f6}.feedback b{font-size:16px}.feedback .transcript{font-family:Arial,"Helvetica Neue",sans-serif;white-space:pre-line;line-height:1.8;font-size:15px;color:#1b364a;padding:10px 0;margin:4px 0}.feedback .note{font-size:13px;color:#52677a}.feedback .answer-label{font-size:12px;color:#54816b;font-weight:800;margin-top:10px}
+/* results */
+.result-hero{text-align:center;padding:30px 18px}.result-medal{font-size:54px}.result-score{font-size:48px;line-height:1.25;font-weight:950;color:#164e80}.result-score small{font-size:19px;color:#7f91a0}.result-msg{font-size:19px;font-weight:900;margin:6px 0}.result-sub{font-size:13px;color:#667f92;margin:0}.result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:20px auto 5px;max-width:500px}.stat{background:#f2f7fa;border-radius:12px;padding:10px}.stat span{display:block;font-size:11px;color:#7b8997}.stat b{font-size:19px;color:#2c5874}.review-title{font-size:19px;margin:5px 0 13px}.review-item{border:1px solid #e1e9ef;border-radius:14px;padding:14px;margin:11px 0;background:#fff}.review-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.review-index{font-weight:900;color:#355777;font-size:12px}.review-state{font-size:11px;border-radius:99px;padding:3px 10px;font-weight:900;background:#e8f7ee;color:#11815b}.review-state.bad{background:#fff0ed;color:#b65b46}.review-script{white-space:pre-line;font-family:Arial,"Helvetica Neue",sans-serif;color:#203950;font-size:14px;line-height:1.7;margin:11px 0 8px}.review-meta{font-size:12px;color:#6b7e8d}.review-choice{font-size:13px;margin:4px 0}.review-note{font-size:12px;color:#537786;margin:6px 0}.review-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px;flex-wrap:wrap}.review-bottom label{display:flex;align-items:center;gap:5px;font-size:12px;color:#48677e}.review-bottom input{accent-color:var(--teal);width:18px;height:18px}.review-bottom button{padding:6px 10px;font-size:11px}.finish-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.finish-buttons>*{flex:1;min-width:155px}.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(30px);opacity:0;pointer-events:none;border-radius:100px;background:#1b384d;color:#fff;padding:11px 20px;font-size:13px;z-index:10;box-shadow:0 8px 26px #13334f40;transition:opacity .18s,transform .18s}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:800px){.setup-grid{grid-template-columns:1fr}.setup-panel{position:static}.intro{align-items:flex-start}.summary-count{display:none}}@media(max-width:560px){.main{padding:16px 11px 35px}.surface-pad,.question-sheet{padding:15px}.level-grid{gap:8px}.level-card{padding:11px 9px;gap:8px}.level-num{width:29px;height:29px;font-size:13px}.level-name{font-size:12px}.level-sub{font-size:10px}.choice-grid{grid-template-columns:1fr}.choice{min-height:66px;padding:13px}.choice .choice-text{font-size:15px}.audio-box{padding:18px 12px}.quiz-nav{align-items:center}.quiz-title strong{font-size:13px}.q-question{font-size:17px}.result-stats{gap:5px}.stat{padding:8px 4px}.stat b{font-size:15px}.finish-buttons>*{min-width:130px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="top-inner"><div class="brand"><span class="brand-icon" aria-hidden="true">🎧</span><div>ENGLISH LISTENING CHALLENGE<small>まなびやつばめ　英語学習アプリ</small></div></div><div class="pill-light">9 LEVELS · 450 QUESTIONS</div></div></header>
+<main class="main">
+<section id="home-screen">
+  <div class="intro"><div><div class="eyebrow">LISTEN · THINK · CHOOSE!</div><h1 class="h1">耳から、英語が<br>わかるようになる。</h1><p class="lead">英語の音声を聞いて、よく似た4つの英文から「一字一句同じ英文」を選びます。全9レベル共通のルールです。</p></div><div class="summary-count">各レベル 50問 × 9段階</div></div>
+  <div class="setup-grid">
+    <section class="surface surface-pad" aria-label="学習レベル"><h2 class="section-h">① 学習レベルを選ぼう</h2><p class="section-help">初めての人は、少しやさしいレベルから始めるのがおすすめです。</p><div class="level-grid" id="level-grid"></div></section>
+    <section class="surface surface-pad setup-panel" aria-label="出題設定"><div class="selected-head"><small>選択中のレベル</small><strong id="level-selected">小学生・中学年</strong><small id="level-summary">短いあいさつ・身近な単語</small></div>
+      <div class="control-title">② 出題範囲</div><select id="range" class="field" aria-label="出題範囲"><option value="all">全50問から選ぶ（ランダム）</option><option value="0">第1セット：1〜10番</option><option value="1">第2セット：11〜20番</option><option value="2">第3セット：21〜30番</option><option value="3">第4セット：31〜40番</option><option value="4">第5セット：41〜50番</option></select>
+      <div class="control-title">③ 問題数</div><div id="count-chips" class="chips" role="group" aria-label="問題数"></div><p class="control-note" id="range-hint">問題は選んだ数だけ、重複せずに出題されます。</p>
+      <div class="control-title">④ 学習モード</div><div class="mode-row"><button type="button" class="mode active" data-mode="practice"><span>🌱 練習モード</span><br>何度でも聞ける</button><button type="button" class="mode" data-mode="exam"><span>🎯 テストモード</span><br>再生回数に制限あり</button></div><p class="control-note" id="mode-hint">1問ごとに英文の完全一致と聞き取りポイントを確認できます。</p>
+      <div class="control-title">⑤ 英語音声の設定（アメリカ英語）</div><div class="setting-line"><select id="voice" class="field" aria-label="アメリカ英語の女性または男性の声"><option value="">米国英語の声を探しています…</option></select><button id="voice-preview" class="tiny-btn" type="button">▶ 試聴</button></div><div class="control-note" id="voice-note">米国英語の女性・男性から、それぞれ1種類だけ選択できます。</div><div class="rate-line"><label for="speed" style="font-size:12px;font-weight:800">話す速さ</label><input id="speed" type="range" min="0.70" max="1.20" step="0.05" value="0.85" aria-label="話す速さ"><span id="speed-value" class="rate-value">0.85×</span></div>
+      <button id="start-btn" type="button" class="primary block" style="margin-top:22px">🎧 リスニングをスタート！</button><p class="start-note">音声再生は「▶ 音声を聞く」を押すと始まります。</p><hr class="hr"><div class="small-info">💡 テストモードでは、初心者向けは2回まで、上級レベルは1回のみ再生できます。聞き取れない場合は「スキップ」も可能です。</div>
+    </section>
+  </div>
+</section>
+<section id="quiz-screen" class="stage" hidden aria-live="polite">
+  <div class="quiz-nav"><div class="quiz-title" id="quiz-level-name">LISTENING<small></small></div><div class="progress-label" id="progress-count">1 / 10</div></div><div class="progress-track" role="progressbar" aria-label="出題進捗" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+  <div class="surface question-sheet">
+    <span class="q-number" id="question-badge">QUESTION 01</span><h2 class="q-question" id="question-text">音声を聞いてください</h2>
+    <div class="audio-box" id="audio-box"><div class="audio-title">FIRST, LISTEN TO THE AUDIO</div><div class="audio-icon" aria-hidden="true">🎧</div><div id="sound-bars" class="sound-bars" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b></div><button id="play-btn" type="button" class="audio-play">▶ 音声を聞く</button><div class="play-count" id="play-count">再生 0回</div><p class="audio-hint" id="audio-status" role="status">英文はまだ表示されません。まずは耳で聞こう！</p></div>
+    <div id="initial-hint" class="ready-hint">🔊 音声を最後まで聞くと、4つの選択肢が表示されます。</div>
+    <div class="choices-area" id="choices-area" hidden><div class="choose-label">LISTEN & CHOOSE ｜ 聞こえた英文と一字一句同じものを選ぼう</div><div id="choices" class="choice-grid"></div><div class="action-bottom"><button type="button" id="skip-btn" class="secondary">この問題をスキップ</button><span id="answer-note" style="font-size:12px;color:#718296">A・B・C・D のキーでも回答できます</span></div></div>
+    <div id="feedback" class="feedback" hidden></div>
+    <div class="action-bottom" id="question-actions"><button type="button" id="quit-btn" class="secondary">← トップに戻る</button><button type="button" id="show-choices-btn" class="secondary" hidden>選択肢を表示</button><button type="button" id="next-btn" class="primary blue" hidden>次の問題へ →</button></div>
+  </div>
+</section>
+<section id="result-screen" class="stage" hidden>
+  <div class="surface"><div class="result-hero"><div class="result-medal" id="medal">🏆</div><div class="eyebrow">CHALLENGE COMPLETE!</div><div class="result-score"><span id="score-value">0</span><small> / <span id="score-max">10</span> 問</small></div><div class="result-msg" id="result-msg"></div><p class="result-sub" id="result-sub"></p><div class="result-stats"><div class="stat"><span>正答率</span><b id="accuracy">0%</b></div><div class="stat"><span>スキップ</span><b id="skip-count">0問</b></div><div class="stat"><span>所要時間</span><b id="elapsed">0:00</b></div></div></div></div>
+  <div class="surface surface-pad" style="margin-top:19px"><h2 class="review-title">📒 答え合わせ・ふりかえり</h2><p class="section-help" id="review-help">間違えた英文はもう一度聞いて、正しい音を確認しましょう。</p><div id="review-list"></div><div class="finish-buttons"><button type="button" id="repeat-btn" class="primary blue">🔁 同じ条件で再挑戦</button><button type="button" id="home-btn" class="secondary">🏠 トップに戻る</button><button type="button" id="copy-btn" class="secondary">📋 成績をコピー</button></div></div>
+</section>
+<footer class="mini-foot">オリジナル練習問題 · 端末の米国英語音声合成を利用 · 音質は端末に依存 · 公式試験問題を転載したものではありません。</footer>
+</main><div id="toast" class="toast" role="status"></div>
+<script>
+/* 問題と英語スクリプトはこのHTMLにすべて内蔵しています。 */
+'use strict';
+const LEVELS = [
+ {name:'小学生・中学年', sub:'短いあいさつ・身近な単語', speed:0.85, icon:'🌱'},
+ {name:'小学生・高学年', sub:'日常会話・質問・簡単な説明', speed:0.90, icon:'🌼'},
+ {name:'中学1年生', sub:'be動詞・一般動詞・基本的な会話', speed:0.90, icon:'📗'},
+ {name:'中学2年生', sub:'過去・未来・比較・会話の流れ', speed:0.95, icon:'📘'},
+ {name:'高校受験', sub:'鹿児島県公立高校入試を意識した聞き取り', speed:0.95, icon:'🎯'},
+ {name:'高校1年生', sub:'説明・理由・意見を聞き取る', speed:1.00, icon:'📙'},
+ {name:'高校2年生', sub:'複数の情報・推測・意図を理解する', speed:1.0, icon:'📕'},
+ {name:'大学受験', sub:'共通テスト水準の語彙・構文を正確に聞き取る', speed:1.05, icon:'🎓'},
+ {name:'TOEFL', sub:'大学生活・学術英語の精密リスニング', speed:1.05, icon:'🌍'}
+];
+const rawGroups = Array.from({length:9},()=>[]);
+function add(level, audio, values, note) {
+  const rows=values.split('|').map(x=>x.split('~').map(s=>s.trim()));
+  if(rows.length!==5) throw Error('五つの組が必要 L'+level+': '+audio);
+  // 唯一の正解文データは音声原稿 audio。全レベルで絶対に別文を正解にしない。
+  rawGroups[level].push({audio,rows,note,question:'聞こえた英文と全く同じ英文を選びましょう。'});
+}
+
+// 小学生・中学年：短い英文を一語ずつ聞き取る
+add(0,'Hello! My name is {a}. I am {b} years old.','Ken~nine|Amy~ten|Taro~eight|Lucy~eleven|Ben~seven','名前と年齢の両方を確かめましょう。');
+add(0,'I have a {a} {b}. It is very cute.','small~dog|black~cat|white~rabbit|brown~hamster|little~bird','動物だけでなく、前につく説明の言葉も聞き取ります。');
+add(0,'This is my {a}. It is {b}.','bag~red|pencil~blue|hat~yellow|book~green|umbrella~pink','物の名前と色の組み合わせに注意。');
+add(0,'I like {a}, but I do not like {b}.','apples~bananas|grapes~melons|oranges~lemons|peaches~pears|strawberries~kiwis','like と do not like を取り違えないようにしましょう。');
+add(0,'Today is {a}. We have {b} class.','Monday~music|Tuesday~art|Wednesday~science|Thursday~English|Friday~math','曜日と教科の両方を聞き取ります。');
+add(0,'My {a} can {b} very well.','brother~swim|sister~sing|father~cook|mother~dance|friend~skate','can の後に続く動作を正確に聞き取りましょう。');
+add(0,'There are {a} {b} on the desk.','two~pencils|three~books|four~erasers|five~rulers|six~notebooks','数を表す言葉と持ち物を聞き取ります。');
+add(0,'It is {a} today. Please take your {b}.','rainy~umbrella|sunny~hat|cold~coat|windy~jacket|hot~water bottle','天気と必要なものの組み合わせに注目。');
+add(0,'I eat {a} for {b}.','toast~breakfast|rice~lunch|pasta~dinner|eggs~breakfast|sandwiches~lunch','何を食べるか、いつ食べるかを聞き取ります。');
+add(0,'Please open your {a} and look at page {b}.','English book~ten|math book~five|notebook~twelve|workbook~eight|textbook~twenty','指示された本とページの数字に注意。');
+
+// 小学生・高学年：日常の場面や簡単な短い説明
+add(1,'I usually get up at {a} and eat {b} for breakfast.','six thirty~cereal|seven o’clock~toast|six forty-five~eggs|seven fifteen~rice|six twenty~yogurt','時刻と朝食をそれぞれ確認しましょう。');
+add(1,'My favorite subject is {a} because I enjoy {b}.','science~experiments|music~singing|art~drawing|English~speaking|P.E.~running','because の後には理由が続きます。');
+add(1,'Excuse me, where is the {a}? Go straight and turn {b}.','library~left|gym~right|station~left|museum~right|hospital~left','場所と曲がる方向は別々に聞き取ります。');
+add(1,'I want to buy {a} tickets for the {b}.','two~zoo|three~museum|four~aquarium|five~concert|six~movie','チケットの枚数と行き先に注意。');
+add(1,'My friend {a} lives near the {b}.','Mina~park|Haruto~river|Emma~station|Yuki~school|Noah~library','near の後に続く場所を正確に聞き取りましょう。');
+add(1,'I go to school by {a}, but my sister goes by {b}.','bus~train|bicycle~bus|train~subway|car~bicycle|subway~bus','自分と姉妹の移動手段を混同しないように。');
+add(1,'Would you like some {a}? Yes, please. I also want {b}.','tea~cookies|juice~cake|water~bread|milk~fruit|lemonade~sandwiches','Yes, please. は申し出を受け入れる表現。');
+add(1,'We will meet at the {a} at {b} tomorrow.','school gate~eight|bus stop~nine|park entrance~ten|station~eleven|library~two','集合場所と時刻の2点が大切です。');
+add(1,'I played {a} on Saturday and visited my {b} on Sunday.','soccer~grandmother|tennis~uncle|basketball~cousin|baseball~grandfather|badminton~aunt','土曜と日曜の予定を区別します。');
+add(1,'My little brother is {a}, and he wants to be a {b}.','six~firefighter|seven~doctor|eight~pilot|nine~teacher|ten~chef','年齢と将来の夢をセットで聞き取ります。');
+
+// 中学1年生：基本文型と現在進行形
+add(2,'I am {a}, and I study {b} after school every day.','Riku~English|Mei~science|Sota~math|Hana~history|Yuna~music','every day は毎日の習慣を表します。');
+add(2,'Does {a} play {b} on Sundays? Yes, she does.','Mika~tennis|Yui~volleyball|Emma~basketball|Sara~badminton|Aiko~soccer','Does への Yes, she does. は肯定の返事です。');
+add(2,'There is a {a} next to the {b}.','hospital~station|cafe~park|library~school|bank~post office|hotel~museum','next to の後に続く場所に注意しましょう。');
+add(2,'My father is making {a}, and my mother is watching {b}.','dinner~TV|breakfast~a movie|lunch~the news|coffee~a drama|soup~a baseball game','現在進行形 is -ing に注目します。');
+add(2,'I can speak {a}, but I cannot speak {b}.','Japanese~French|English~Spanish|Korean~Chinese|Chinese~German|Spanish~Italian','can と cannot の違いを聞き取ります。');
+add(2,'How many {a} are there in your {b}? There are twenty.','students~class|chairs~room|books~box|trees~garden|desks~classroom','How many は数を尋ねる疑問文です。');
+add(2,'My brother gets home at {a} and does his {b} before dinner.','four~homework|five~chores|three thirty~reading|six~practice|four thirty~math exercises','before dinner は夕食より前を表します。');
+add(2,'I am looking for my {a}. I left it in the {b}.','wallet~classroom|phone~library|notebook~gym|key~kitchen|pencil case~music room','left it は「それを置いてきた」という意味です。');
+add(2,'This is not {a} bag. It belongs to {b}.','Ken’s~Lisa|Yuki’s~Tom|Amy’s~Mika|Ben’s~Sara|Taro’s~Emma','所有者の取り違えに注意。not の後の情報がポイントです。');
+add(2,'Please do not {a} here. You can {b} outside.','run~play|eat~drink|shout~talk|swim~walk|jump~exercise','禁止と許可を聞き分けます。');
+
+// 中学2年生：時制、比較、会話・目的
+add(3,'Last Sunday, {a} went to the {b} and bought a present.','Miki~department store|Sora~shopping mall|Kenta~bookstore|Rina~market|Taku~gift shop','went と bought は過去の出来事です。');
+add(3,'This train is {a} than the bus, but it is {b}.','faster~more expensive|quieter~slower|safer~more crowded|cheaper~less comfortable|cleaner~less convenient','比較級と but で逆の内容が続く点に注意。');
+add(3,'If it is {a} tomorrow, we will {b} instead of going hiking.','rainy~visit a museum|snowy~stay home|windy~play board games|stormy~watch a movie|cloudy~go shopping','if は条件、instead of は「〜の代わりに」です。');
+add(3,'I was {a} when my friend called me at {b}.','reading~seven|cooking~six|studying~eight|cleaning~five|sleeping~nine','過去進行形はその時していたことを表します。');
+add(3,'We have to finish the {a} by {b}, not the next day.','report~Friday|poster~Thursday|homework~Monday|project~Wednesday|presentation~Tuesday','by は期限「〜までに」を示します。');
+add(3,'I think {a} is more interesting than {b}.','history~geography|music~art|science~math|soccer~baseball|reading~video games','more interesting than は好みの比較です。');
+add(3,'She has lived in {a} for {b} years.','Kagoshima~three|Osaka~four|Tokyo~five|Fukuoka~six|Kyoto~seven','for の後に続く期間と地名を聞き取りましょう。');
+add(3,'Could you tell me how to get to the {a}? Take the {b} line.','airport~blue|museum~green|stadium~red|aquarium~yellow|library~orange','Could you tell me ...? は丁寧な道案内の質問です。');
+add(3,'My mother told me to {a} before I {b}.','clean my room~go out|wash my hands~eat|finish my homework~play games|feed the dog~sleep|pack my bag~leave','to do と before の順序を聞き取りましょう。');
+add(3,'The boy who is wearing a {a} jacket is my {b}.','blue~brother|green~cousin|red~friend|black~neighbor|yellow~classmate','who の後は人を説明しています。');
+
+// 高校受験：鹿児島県公立入試の「必要な情報・概要・スピーチ」を意識したオリジナル問題
+add(4,'The {a} was originally scheduled for six, but it will now start at {b}.','concert~six thirty|school play~seven|basketball game~five thirty|festival~six forty-five|speech contest~seven fifteen','開始時刻を表す six と、その後に出る変更後の時刻を聞き分けます。');
+add(4,'We need {a} tickets for the science museum, and each one costs {b} yen.','two~500|three~600|four~400|five~300|six~700','チケットの枚数と料金の一部だけが違う選択肢に注意。');
+add(4,'Since the school gate is closed, let\'s meet at the {a} at {b}.','library~nine|gym~ten|station~eight thirty|park~nine thirty|community center~eleven','集合する場所と時刻をどちらも正確に聞き取ります。');
+add(4,'I didn\'t go to the {a} yesterday because I had to {b}.','zoo~study for a test|park~help my mother|museum~finish a report|beach~take care of my sister|stadium~practice the piano','did not と had to を聞き落とさず、場所と理由に注目。');
+add(4,'Our class volunteered at the {a} for {b} hours last month.','city library~two|animal shelter~three|community garden~four|local park~five|nursing home~six','活動場所と時間数の組み合わせに注意。');
+add(4,'Can you tell me how to get to the {a} from the {b}?','city library~station|history museum~school|sports center~park|hospital~bus stop|community hall~shopping mall','目的地と出発地点の順番を聞き分けます。');
+add(4,'The school {a} will be held on {b}, so please arrive early.','sports day~Friday|music festival~Saturday|cleaning activity~Sunday|science fair~Wednesday|art exhibition~Thursday','行事の名前と曜日を間違えないようにしましょう。');
+add(4,'I left my {a} on the bus, so I should contact the {b}.','wallet~bus company|umbrella~lost and found office|phone~transportation center|bag~bus station|notebook~bus driver','失くした物と連絡先の組み合わせがポイントです。');
+add(4,'Last summer I visited {a}, and on the first day I went to the {b}.','Kyoto~temple|Nara~park|Osaka~aquarium|Hiroshima~museum|Kobe~harbor','訪れた都市と初日の場所を聞き取りましょう。');
+add(4,'Because it may rain, the {a} will take place in the {b} tomorrow.','ceremony~gym|concert~hall|meeting~classroom|party~cafeteria|contest~auditorium','行事の名前と屋内会場に注意しましょう。');
+
+// 高校1年生：関係・理由・要旨・短い意見
+add(5,'Although {a} practiced carefully, she changed her presentation topic because {b}.','Maya~the data were incorrect|Emma~the audience was different|Rina~the experiment failed|Sophie~the schedule changed|Naomi~the information was outdated','Although と because の後に続く語句まで正確に聞きます。');
+add(5,'If no one has reserved it, I can renew the book about {a} until {b}.','astronomy~Friday|biology~Monday|photography~Wednesday|Japanese history~Tuesday|climate change~Thursday','if の条件と、延長できる曜日を確認します。');
+add(5,'I originally wanted to join the {a} club, but I eventually chose the {b} club.','tennis~drama|music~science|art~basketball|debate~volunteer|robotics~photography','最初の希望と実際に選んだ部活動を区別します。');
+add(5,'According to the survey, {a} students prefer the library, while {b} prefer studying at home.','twenty~thirty|forty~twenty|fifteen~twenty-five|thirty~forty|twenty-five~fifteen','while の前後に現れる2つの人数に注意します。');
+add(5,'Unless the weather improves, we will move the {a} into the {b}.','ceremony~main hall|exhibition~gym|concert~auditorium|debate~classroom|workshop~library','Unless の後の条件と、移動先の施設を正しく聞き取ります。');
+add(5,'The {a} train was canceled, so the station staff suggested taking the {b} train instead.','express~local|morning~afternoon|coastal~inland|seven o’clock~eight o’clock|direct~connecting','運休になった列車と、代わりの列車を聞き分けます。');
+add(5,'Some people learn best through {a}, but I think {b} can be just as effective.','reading textbooks~discussing with others|studying alone~working in groups|watching videos~doing experiments|taking notes~teaching a friend|memorizing facts~solving problems','but の前後の学習方法を取り違えないようにします。');
+add(5,'The city plans to collect {a} separately at the {b} to reduce waste.','plastic bottles~community center|old batteries~supermarket|used clothing~school|paper containers~station|food scraps~recycling center','回収する品目と回収場所の組み合わせがポイントです。');
+add(5,'Before lunch, the speaker will discuss {a}; afterward, we will attend a workshop about {b}.','renewable energy~recycling|space science~robotics|nutrition~cooking|marine biology~water quality|local history~traditional crafts','午前中の話題と午後の活動を聞き分けます。');
+add(5,'I thought the movie\'s ending was {a}, but my friend disliked the {b} most.','confusing~dialogue|predictable~music|disappointing~acting|surprising~plot|unrealistic~visual effects','終わり方への感想と、友人が批判した部分を区別します。');
+
+// 高校2年生：推論・複数条件・説明の整理
+add(6,'Although the team expected {a} to help, the results suggested that {b} made a bigger difference.','longer study hours~regular breaks|larger classes~personal feedback|more expensive equipment~better training|earlier meetings~clearer instructions|higher temperatures~consistent lighting','Although の後と結果を表す部分の語句に注意します。');
+add(6,'The professor extended the report deadline from {a} to {b}, but the presentation date stayed the same.','Tuesday~Friday|Wednesday~next Monday|Thursday~next Tuesday|Friday~next Wednesday|Monday~Thursday','最初の提出日と延長後の提出日を聞き分けます。');
+add(6,'Instead of building a {a}, the town decided to improve its existing {b}.','new stadium~sports center|parking garage~bus terminal|shopping complex~market|concert hall~community theater|public library~reading room','新しく建てる候補と、改善する既存施設を区別します。');
+add(6,'My flight arrives at {a}, although I cannot check into the hotel until {b}.','ten in the morning~three in the afternoon|nine in the morning~two in the afternoon|eleven in the morning~four in the afternoon|noon~five in the afternoon|eight in the morning~one in the afternoon','到着時刻とチェックイン時刻の違いに注意。');
+add(6,'The study found that people who {a} concentrated better than those who {b}, but the sample was small.','took short walks~stayed seated|slept eight hours~slept six hours|reviewed daily~crammed once|worked in silence~listened to music|ate breakfast~skipped breakfast','比較した2つの行動と、研究の留保を聞き取ります。');
+add(6,'The lecture was originally about {a}, but the speaker will focus on {b} instead.','ancient farming~modern food systems|basic programming~computer security|classical art~digital design|weather patterns~climate prediction|human anatomy~medical technology','当初の講義テーマと新しく扱うテーマを比較します。');
+add(6,'The student council proposed spending more money on {a} rather than {b} next semester.','library resources~decorations|shared equipment~special events|mental health support~sports prizes|accessible entrances~new uniforms|study spaces~festival advertising','rather than で示す優先順位を聞き取ります。');
+add(6,'Because the seminar on {a} is full, I\'ll attend a related session on {b}.','urban planning~public transport|water conservation~river management|international law~human rights|digital privacy~online safety|nutrition~public health','満席になった講義と代替講義を区別します。');
+add(6,'In the short term, the policy could increase {a}, although it may eventually reduce {b}.','costs~waste|traffic delays~pollution|workload~errors|energy use~emissions|ticket prices~congestion','短期的に増えるものと、長期的に減るものを確認します。');
+add(6,'The article blames {a} for the problem, but we should also consider {b}.','technology~education|weather~land use|income~access to services|exercise~sleep habits|tourism~local housing','一つ目の要因と、追加で考える要因を聞き分けます。');
+
+// 大学受験：共通テストを意識した言い換え・要旨・数字・条件・意図
+add(7,'Due to high demand, the exhibition\'s closing date has been moved from {a} to {b}.','Sunday~Wednesday|Friday~Monday|Tuesday~Saturday|Thursday~Sunday|Monday~Friday','展示終了日の変更前と変更後を正確に聞き分けます。');
+add(7,'Since the bus to the {a} is not running, I\'ll take a train to the {b}.','city center~main station|stadium~central station|museum~south station|campus~east station|airport~terminal station','運休のバスの行き先と、乗り換える列車の行き先に注意。');
+add(7,'Group A must visit the {a} first, whereas Group B should report to the {b} before lunch.','museum~laboratory|library~observatory|garden~workshop|science hall~theater|factory~art studio','A班とB班の訪問先を入れ替えないようにします。');
+add(7,'I can help with the event on {a}, but I have an important exam on {b}.','Saturday~Sunday|Tuesday~Wednesday|Friday~Saturday|Monday~Thursday|Wednesday~Friday','手伝える日と試験がある日を混同しないようにします。');
+add(7,'In our survey, {a} percent preferred cycling, while {b} percent said they usually walked.','35~30|42~38|28~25|45~40|32~29','割合と交通手段の組み合わせを聞き取ります。');
+add(7,'This lecture examines {a}, focusing specifically on {b} rather than its economic effects.','urban tourism~its impact on local communities|renewable energy~its effect on wildlife|international trade~its influence on cultural exchange|online education~its effect on student motivation|public transport~its accessibility for older people','話題の全体像と、特に注目する論点に注意。');
+add(7,'While I support spending money on {a}, the benefits may not last without improvements in {b}.','public parks~maintenance|electric buses~charging stations|tourism campaigns~local infrastructure|digital classrooms~teacher training|solar panels~battery storage','導入する設備と必要な改善項目を聞き分けます。');
+add(7,'Rather than banning {a}, I want people to use {b} more responsibly.','social media~online services|private cars~transport options|plastic products~packaging materials|air conditioning~electricity|smartphones~digital devices','禁止するのではなく責任を持って使うという表現です。');
+add(7,'The experiment reduced {a}, although it produced little improvement in {b}.','water consumption~production speed|air pollution~energy costs|food waste~customer satisfaction|noise~battery life|heat loss~construction time','減少に成功したものと、改善が少なかったものを区別します。');
+add(7,'Before drawing any conclusions, the researchers carefully compared {a} with {b}.','temperature data~historical records|student feedback~teacher observations|water samples~satellite images|traffic counts~last year’s statistics|soil measurements~weather reports','比較した二つのデータを順番どおりに聞き取ります。');
+
+// TOEFL iBT（2026年以降の構成を参考にした独自問題）
+add(8,'For information about {a}, please contact the {b} office on campus.','course registration~academic advising|campus housing~residential life|financial aid~student services|study abroad~international programs|library access~library services','学内手続きに関する分野名と窓口名を正確に聞きます。');
+add(8,'Since the {a} seminar is full, I recommend the related seminar on {b}.','environmental policy~sustainable cities|behavioral economics~decision science|modern literature~cultural studies|molecular biology~genetics|data visualization~applied statistics','満席の講義と代わりに紹介された講義を区別します。');
+add(8,'Because the {a} is being repaired, tomorrow\'s workshop has moved to the {b}.','elevator~library meeting room|air conditioning~student center|projector~computer laboratory|water system~engineering hall|ventilation~main auditorium','修理対象の設備と変更先の部屋を聞き分けます。');
+add(8,'Recent evidence suggests that {b} affects this species more strongly than {a} does.','rainfall~soil chemistry|daylight~ocean temperature|predators~habitat fragmentation|food supply~migration patterns|competition~human disturbance','新しい根拠が示す強い要因と以前の要因を聞き分けます。');
+add(8,'The reported increase in {a} could reflect improved methods of {b}, rather than actual population growth.','rare birds~observation|marine mammals~tracking|insect species~identification|forest animals~camera monitoring|migratory fish~counting','個体数の増加と観察方法の進歩を区別する文です。');
+add(8,'Your {a} application appears incomplete because the {b} document has not yet been uploaded.','scholarship~income statement|internship~recommendation letter|exchange program~language certificate|research grant~project proposal|housing~proof of enrollment','申請の種類と不足している書類名を聞き取ります。');
+add(8,'Studies of {b} suggest that having more information about {a} does not always lead to better decisions.','consumer behavior~choice overload|public health~risk perception|urban design~wayfinding|education technology~digital distraction|financial planning~decision fatigue','情報量と意思決定に関する対比を正確に聞きます。');
+add(8,'A correlation between {a} and {b} does not necessarily establish a cause-and-effect relationship.','screen time~poor sleep|exercise~better grades|coffee drinking~anxiety|social media use~loneliness|commuting time~stress','correlation と cause-and-effect の関係に注意します。');
+add(8,'To use the {a} during the holiday, students must submit their request by {b}.','research laboratory~Thursday|recording studio~Monday|sports facility~Wednesday|computer center~Friday|special collections room~Tuesday','利用したい施設と申請期限を正確に聞き取ります。');
+add(8,'It would be misleading to explain the development of {a} entirely through {b}, without considering other influences.','agriculture~technology|urbanization~population growth|public education~government policy|international migration~employment opportunities|medical innovation~scientific discoveries','単一要因と他の影響を対比する学術的な英文です。');
+
+function fmt(t,row) {return t.replace(/\{([abc])\}/g, (_,key)=>row[key.charCodeAt(0)-97]??'');}
+const QUESTIONS=LEVELS.map((level,li)=>{
+ const gs=rawGroups[li];
+ if(gs.length!==10) throw Error(`Level ${li+1}: ${gs.length} themes; expected 10`);
+ const out=[];
+ for(let round=0;round<5;round++) for(let ti=0;ti<gs.length;ti++){
+  const group=gs[ti], row=group.rows[round];
+  const script=fmt(group.audio,row);
+  const used=[...new Set([...group.audio.matchAll(/\{([abc])\}/g)].map(x=>x[1]))];
+  const options=[script];
+  // 1か所だけ変更した「惜しい英文」を優先し、最後に2か所変更した英文を混ぜる。
+  for(let ki=0;ki<used.length;ki++) {
+   const changed=row.slice(), index=used[ki].charCodeAt(0)-97;
+   changed[index]=group.rows[(round+ki+1)%5][index];
+   const alt=fmt(group.audio,changed);
+   if(!options.includes(alt)) options.push(alt);
+  }
+  for(let offset=1;options.length<4 && offset<5;offset++){
+   const alt=fmt(group.audio,group.rows[(round+offset)%5]);
+   if(!options.includes(alt)) options.push(alt);
+  }
+  if(options.length!==4 || new Set(options).size!==4 || options.filter(v=>v===script).length!==1) throw Error(`Options invalid L${li+1} theme${ti+1} round${round+1}`);
+  if(/\{[abc]\}/.test(script+options.join(''))) throw Error(`Unresolved variable L${li+1} question${out.length+1}`);
+  out.push({id:out.length+1,level:li,script,question:group.question,choices:options,answer:script,note:group.note});
+ }
+ if(out.length!==50 || new Set(out.map(q=>q.script)).size!==50) throw Error('Bad question bank L'+li);
+ return out;
+});
+
+
+const $=id=>document.getElementById(id);
+const ALL_LETTERS=['A','B','C','D'];
+const STORE_KEY='manabi_listening_v1';
+const AUDIO_FILES={};// 収録音声を利用する場合は {"5-1":"audio/l5_001.mp3"} のように登録。未登録は英語音声合成。
+const state={level:0,count:10,range:'all',mode:'practice',rate:0.85,voiceGender:'female',set:[],idx:0,answers:[],currentOptions:[],correctIndex:-1,playCount:0,played:false,finished:false,speaking:false,sessionStart:0,audioToken:0,reviewDone:new Set(),selectedVoice:null};
+let voiceList=[], voiceCatalog={female:null,male:null}, activeAudio=null, toastTimer=0;
+// 音声合成APIは性別を返さないため、実在する米国英語音声の名称のみで分類する。
+// 国や性別が不明な音声・キャラクター音声は選択肢に出さない。
+const US_VOICE=/^en[-_]US$/i;
+const FEMALE_NAMES=/\b(samantha|ava|allison|victoria|susan|joelle|zoe|nicky|noelle|jenny|aria|emma|michelle|olivia|jane|sara|sarah|ana|kendra|kimberly|salli|ivy|joanna|amy|kathy|kathleen)\b/i;
+const MALE_NAMES=/\b(alex|tom|aaron|evan|nathan|oliver|mitchell|david|guy|andrew|brian|christopher|eric|ryan|roger|jason|josh|matthew|justin|brandon|matt|daniel|michael)\b/i;
+const NOVELTY_VOICES=/\b(boing|bad news|bells|bubbles|cellos|hysterical|organ|pipe organ|princess|trinoids|whisper|wobble|zarvox|junior|ralph|fred|good news|superstar|albert|bahh|deranged|jester|trumpets|victoria voice fx)\b/i;
+
+function storeGet(){try{return JSON.parse(localStorage.getItem(STORE_KEY)||'{}')}catch(e){return {}}}
+function storeSet(value){try{localStorage.setItem(STORE_KEY,JSON.stringify(value))}catch(e){}}
+function shuffle(a){const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
+function tell(message){const el=$('toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2300)}
+function section(id){['home-screen','quiz-screen','result-screen'].forEach(s=>$(s).hidden=s!==id);window.scrollTo({top:0,behavior:'instant'})}
+function escapeHtml(str){return String(str).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderLevels(){const record=storeGet();$('level-grid').innerHTML=LEVELS.map((level,i)=>{const high=record.best?.[i];return `<button type="button" class="level-card ${i===state.level?'selected':''}" data-lvl="${i}" aria-pressed="${i===state.level}"><span class="level-num">${i+1}</span><span class="level-txt"><span class="level-name">${level.icon} ${level.name}</span><span class="level-sub">${escapeHtml(level.sub)}</span>${high!==undefined?`<span class="level-best">🏆 最高正答率 ${high}%</span>`:''}</span></button>`}).join('');document.querySelectorAll('[data-lvl]').forEach(el=>el.addEventListener('click',()=>setLevel(Number(el.dataset.lvl))))}
+function setLevel(n){state.level=n;state.rate=LEVELS[n].speed;$('speed').value=state.rate;$('speed-value').textContent=state.rate.toFixed(2)+'×';$('level-selected').textContent=LEVELS[n].name;$('level-summary').textContent=LEVELS[n].sub;renderLevels();renderModeHint()}
+function renderCount(){const fixed=state.range!=='all';$('count-chips').innerHTML=[10,20,30,40,50].map(n=>`<button type="button" class="chip ${state.count===n?'active':''}" data-count="${n}" ${fixed?'disabled':''} aria-pressed="${state.count===n}">${n}問</button>`).join('');document.querySelectorAll('[data-count]').forEach(btn=>btn.addEventListener('click',()=>{state.count=Number(btn.dataset.count);renderCount()}));$('range-hint').textContent=fixed?'選択した10問だけを出題します（順番はランダムです）。':'全50問から選んだ数を重複なく出題します。'}
+function renderModeHint(){document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===state.mode));$('mode-hint').textContent=state.mode==='practice'?'1問ごとに英文の完全一致と聞き取りポイントを確認できます。':'答えは最後にまとめて発表。音声はこのレベルで'+(state.level<=3?'2回':'1回')+'まで再生できます。'}
+function voiceQuality(v){
+  let score=0;
+  if(/natural|neural|premium|enhanced/i.test(v.name))score+=60;
+  if(/microsoft.*online/i.test(v.name))score+=30;
+  if(v.localService)score+=5;
+  if(/^(Samantha|Alex)$/i.test(v.name))score+=8;
+  return score;
+}
+function refreshVoices(){
+  const box=$('voice'), preview=$('voice-preview');
+  if(!('speechSynthesis' in window)){
+    box.innerHTML='<option value="">このブラウザでは音声を利用できません</option>';box.disabled=true;preview.disabled=true;
+    $('voice-note').textContent='音声再生にはSafari、Chrome、Edgeなどの音声合成対応ブラウザが必要です。';return;
+  }
+  voiceList=speechSynthesis.getVoices().filter(v=>US_VOICE.test(v.lang)&&!NOVELTY_VOICES.test(v.name));
+  const sorted=[...voiceList].sort((a,b)=>voiceQuality(b)-voiceQuality(a)||a.name.localeCompare(b.name));
+  voiceCatalog={
+    female:sorted.find(v=>FEMALE_NAMES.test(v.name))||null,
+    male:sorted.find(v=>MALE_NAMES.test(v.name))||null
+  };
+  const labels={female:'女性（アメリカ英語）',male:'男性（アメリカ英語）'};
+  const any=Boolean(voiceCatalog.female||voiceCatalog.male);
+  if(!any){
+    box.innerHTML='<option value="">米国英語の男性・女性音声が未検出</option>';
+    box.disabled=true;preview.disabled=true;
+    $('voice-note').textContent=voiceList.length?'アメリカ英語の声はありますが、男女の判別ができません。端末の音声設定で Samantha／Alex などの米国英語音声を追加してください。':'端末に米国英語の声が見つかりません。音声設定で米国英語（en-US）の声を追加してください。';
+    return;
+  }
+  if(!voiceCatalog[state.voiceGender])state.voiceGender=voiceCatalog.female?'female':'male';
+  box.innerHTML=['female','male'].map(g=>`<option value="${g}" ${voiceCatalog[g]?'':'disabled'}>${labels[g]}${voiceCatalog[g]?'':'（未インストール）'}</option>`).join('');
+  box.disabled=false;box.value=state.voiceGender;preview.disabled=false;
+  state.selectedVoice=voiceCatalog[state.voiceGender];
+  const missing=Object.keys(voiceCatalog).filter(g=>!voiceCatalog[g]);
+  $('voice-note').textContent=missing.length
+    ? `現在は${state.voiceGender==='female'?'女性':'男性'}の米国英語音声のみ利用できます。別の声を使うには端末に音声を追加してください。`
+    : '男女それぞれ1種類の米国英語音声に固定して読み上げます。';
+}
+function getVoiceFor(label){
+  const chosen=voiceCatalog[state.voiceGender]||voiceCatalog.female||voiceCatalog.male||null;
+  if(/^M$/i.test(label||''))return voiceCatalog.male||chosen;
+  if(/^W$/i.test(label||''))return voiceCatalog.female||chosen;
+  if(/^(Staff|Advisor)$/i.test(label||''))return voiceCatalog[state.voiceGender==='female'?'male':'female']||chosen;
+  return chosen;
+}
+function stopAudio(){state.audioToken++;if(activeAudio){activeAudio.pause();activeAudio.src='';activeAudio=null}if('speechSynthesis' in window){speechSynthesis.cancel()}state.speaking=false;const bars=$('sound-bars');if(bars)bars.classList.remove('playing')}
+function audioDone(token,ok){if(token!==state.audioToken)return;state.speaking=false;$('sound-bars').classList.remove('playing');state.played ||= ok;$('play-btn').textContent=state.played?'↻ もう一度聞く':'▶ 音声を聞く';updatePlayAvailability();if(!state.finished){$('audio-status').textContent=ok?'聞き終わりました。英文をよく比べて答えましょう。':'音声が再生できませんでした。音声設定を確認してください。';if(ok)revealChoices();else $('show-choices-btn').hidden=false}}
+function speakText(text,token,rate,done,voiceOverride){if(!('speechSynthesis' in window)){done(false);return}const turns=text.split('\n').map(x=>x.trim()).filter(Boolean).map(line=>{const m=/^([A-Za-z ]+):\s*(.*)$/.exec(line);return m?{label:m[1],text:m[2]}:{label:null,text:line}});if(!turns.length){done(false);return}let part=0;function speakNext(){if(token!==state.audioToken)return;if(part>=turns.length){done(true);return}const t=turns[part++];const utter=new SpeechSynthesisUtterance(t.text);const v=voiceOverride||getVoiceFor(t.label);utter.lang='en-US';if(v)utter.voice=v;utter.rate=rate;utter.pitch=1;utter.volume=1;utter.onend=()=>speakNext();utter.onerror=e=>{if(token===state.audioToken)done(false)};try{speechSynthesis.speak(utter)}catch(e){done(false)}}speakNext()}
+function updatePlayAvailability(){const max=state.mode==='practice'?Infinity:(state.level<=3?2:1);$('play-btn').disabled=state.speaking||state.playCount>=max||state.finished;$('play-count').textContent=state.mode==='practice'?`再生 ${state.playCount}回 ／ 練習モードは何度でもOK`:`再生 ${state.playCount} / ${max}回（テストモード）`}
+function beginPlay(){if(state.finished||state.speaking)return;const max=state.mode==='practice'?Infinity:(state.level<=3?2:1);if(state.playCount>=max)return;const question=state.set[state.idx];stopAudio();const token=state.audioToken;state.speaking=true;state.playCount++;$('sound-bars').classList.add('playing');$('show-choices-btn').hidden=false;$('show-choices-btn').textContent='音声を聞き終わったら選択肢を表示';$('audio-status').textContent='英語音声を再生中… 耳をすませて聞いてください。';$('play-btn').textContent='🔊 再生中…';updatePlayAvailability();const uri=AUDIO_FILES[`${state.level+1}-${question.id}`];if(uri){const sound=new Audio(uri);activeAudio=sound;sound.playbackRate=state.rate;sound.onended=()=>audioDone(token,true);sound.onerror=()=>{if(token===state.audioToken){activeAudio=null;speakText(question.script,token,state.rate,ok=>audioDone(token,ok))}};sound.play().catch(()=>{if(token===state.audioToken){activeAudio=null;speakText(question.script,token,state.rate,ok=>audioDone(token,ok))}})}else{speakText(question.script,token,state.rate,ok=>audioDone(token,ok))}}
+function revealChoices(){if(state.finished)return;$('choices-area').hidden=false;$('initial-hint').hidden=true;$('show-choices-btn').hidden=true}
+function recordAnswer(choice){if(state.finished)return;state.finished=true;stopAudio();const item=state.set[state.idx];state.answers.push({id:item.id,level:state.level,choice,answer:item.answer,isCorrect:choice===item.answer,script:item.script,note:item.note,question:item.question,plays:state.playCount});const options=[...document.querySelectorAll('.choice')];options.forEach((btn,i)=>{btn.disabled=true;const answer=state.currentOptions[i];if(state.mode==='practice'){if(answer===item.answer)btn.classList.add('correct');else if(choice===answer)btn.classList.add('wrong');else btn.classList.add('dim')}else if(choice===answer){btn.classList.add('picked')}else{btn.classList.add('dim')}});$('skip-btn').disabled=true;$('next-btn').hidden=false;$('next-btn').textContent=state.idx===state.set.length-1?'結果を見る →':'次の問題へ →';$('audio-status').textContent='解答を記録しました。';if(state.mode==='practice'){showFeedback(item,choice)}else{const f=$('feedback');f.hidden=false;f.className='feedback neutral';f.innerHTML='<b>✓ 回答を記録しました。</b><p class="note">正解と英文は最後の結果画面で確認できます。</p>'}const next=$('next-btn');next.focus({preventScroll:true})}
+function showFeedback(item,choice){const good=choice===item.answer;const box=$('feedback');box.hidden=false;box.className='feedback'+(good?'':' bad');const status=choice===null?'スキップしました':good?'🎉 正解です！':'おしい！ 正解を確認しよう';box.innerHTML=`<b>${status}</b><div class="answer-label">正解の英文（読み上げた英文と完全一致）</div><div class="transcript">${escapeHtml(item.answer)}</div><div class="note">💡 ${escapeHtml(item.note)}</div>`}
+function renderQuestion(){stopAudio();const item=state.set[state.idx];state.playCount=0;state.played=false;state.finished=false;const opts=shuffle(item.choices);state.currentOptions=opts;state.correctIndex=opts.indexOf(item.answer);$('quiz-level-name').innerHTML=`<strong>${LEVELS[state.level].name}</strong>${state.mode==='exam'?'テストモード':'練習モード'} · 全${state.set.length}問`;$('progress-count').textContent=`${state.idx+1} / ${state.set.length}`;const pct=state.idx/state.set.length*100;$('progress-fill').style.width=pct+'%';$('progress-track').setAttribute('aria-valuenow',String(Math.round(pct)));$('question-badge').textContent=`QUESTION ${String(state.idx+1).padStart(2,'0')}　/　問題番号 ${String(item.id).padStart(2,'0')}`;$('question-text').textContent=item.question;$('choices').innerHTML=opts.map((t,i)=>`<button type="button" class="choice" data-choice="${i}"><span class="letter">${ALL_LETTERS[i]}</span><span class="choice-text">${escapeHtml(t)}</span></button>`).join('');document.querySelectorAll('[data-choice]').forEach(b=>b.addEventListener('click',()=>recordAnswer(opts[Number(b.dataset.choice)])));$('feedback').hidden=true;$('choices-area').hidden=true;$('initial-hint').hidden=false;$('next-btn').hidden=true;$('show-choices-btn').hidden=true;$('skip-btn').disabled=false;$('audio-status').textContent='英文はまだ表示されません。まずは耳で聞こう！';$('play-btn').textContent='▶ 音声を聞く';updatePlayAvailability()}
+function start(){if(!state.selectedVoice){tell('アメリカ英語の音声が見つかりません。端末に英語（米国）の音声を追加してください。');return}state.set=shuffle(state.range==='all'?QUESTIONS[state.level]:QUESTIONS[state.level].slice(Number(state.range)*10,Number(state.range)*10+10)).slice(0,state.range==='all'?state.count:10);state.idx=0;state.answers=[];state.sessionStart=Date.now();state.reviewDone=new Set();section('quiz-screen');renderQuestion()}
+function onNext(){if(!state.finished)return;if(state.idx<state.set.length-1){state.idx++;renderQuestion();window.scrollTo({top:0,behavior:'instant'})}else{renderResult()}}
+function fmtTime(sec){return Math.floor(sec/60)+':'+String(sec%60).padStart(2,'0')}
+function renderResult(){stopAudio();section('result-screen');const total=state.answers.length,good=state.answers.filter(a=>a.isCorrect).length,skipped=state.answers.filter(a=>a.choice===null).length,percent=Math.round(good/total*100),secs=Math.max(0,Math.floor((Date.now()-state.sessionStart)/1000));$('score-value').textContent=good;$('score-max').textContent=total;$('accuracy').textContent=percent+'%';$('skip-count').textContent=skipped+'問';$('elapsed').textContent=fmtTime(secs);$('medal').textContent=percent===100?'🏆':percent>=80?'🥇':percent>=60?'🥈':'🌱';$('result-msg').textContent=percent===100?'パーフェクト！ すばらしい！':percent>=80?'よく聞き取れました！':percent>=60?'いい調子！ あと少し！':'復習して、もう一度チャレンジ！';$('result-sub').textContent=`${LEVELS[state.level].name} ／ ${state.mode==='exam'?'テスト':'練習'}モード ／ 問題数 ${total}問`;const history=storeGet();history.best ||= {};history.attempts ||= {};history.best[state.level]=Math.max(history.best[state.level]||0,percent);history.attempts[state.level]=(history.attempts[state.level]||0)+1;storeSet(history);
+ const wrong=state.answers.filter(a=>!a.isCorrect);$('review-help').textContent=wrong.length?`間違え・スキップは${wrong.length}問。英文を読み直し、音声でも確認してみましょう。`:'全問正解！ 各問題を開いて確認することもできます。';const sorted=[...wrong,...state.answers.filter(a=>a.isCorrect)];$('review-list').innerHTML=sorted.map((a,i)=>{const orig=state.answers.indexOf(a)+1;return `<div class="review-item"><div class="review-top"><span class="review-index">第${orig}問（問題番号 ${String(a.id).padStart(2,'0')}）</span><span class="review-state ${a.isCorrect?'':'bad'}">${a.isCorrect?'正解':a.choice===null?'スキップ':'まちがい'}</span></div><details ${!a.isCorrect?'open':''}><summary style="cursor:pointer;font-size:12px;color:#4e718b;margin-top:7px">英文と解説を${a.isCorrect?'見る':'確認する'}</summary><div class="review-choice"><b>正解・音声と同じ英文：</b></div><div class="review-script">${escapeHtml(a.answer)}</div>${a.choice!==null&&!a.isCorrect?`<div class="review-choice"><b>あなたの回答：</b>${escapeHtml(a.choice)}</div>`:''}<div class="review-note">💡 ${escapeHtml(a.note)}</div><div class="review-bottom"><button type="button" class="tiny-btn" data-review-play="${orig-1}">🔊 もう一度聞く</button>${!a.isCorrect?`<label><input type="checkbox" data-review-check="${orig-1}"> 復習した！</label>`:''}</div></details></div>`}).join('');document.querySelectorAll('[data-review-play]').forEach(b=>b.addEventListener('click',()=>playReview(Number(b.dataset.reviewPlay))));document.querySelectorAll('[data-review-check]').forEach(b=>b.addEventListener('change',e=>{const key=Number(b.dataset.reviewCheck);if(e.target.checked)state.reviewDone.add(key);else state.reviewDone.delete(key);if(state.reviewDone.size===wrong.length)tell('間違えた問題の復習が終わりました！')}));renderLevels()}
+function playReview(i){const item=state.answers[i];if(!item)return;stopAudio();const token=state.audioToken;const old=document.querySelector(`[data-review-play="${i}"]`);if(old)old.textContent='🔊 再生中…';speakText(item.script,token,state.rate,()=>{if(token===state.audioToken&&old)old.textContent='🔊 もう一度聞く'})}
+function goHome(){stopAudio();section('home-screen');renderLevels()}
+function copyScore(){const good=state.answers.filter(a=>a.isCorrect).length;const percent=Math.round(good/state.answers.length*100);const lines=[`英語リスニングチャレンジ｜${LEVELS[state.level].name}`,`正解 ${good}/${state.answers.length}問（${percent}%）`,'',...state.answers.map((a,i)=>`${i+1}. [${a.isCorrect?'正解':a.choice===null?'スキップ':'不正解'}] No.${String(a.id).padStart(2,'0')} ${a.answer}`)];const text=lines.join('\n');if(navigator.clipboard?.writeText){navigator.clipboard.writeText(text).then(()=>tell('結果をコピーしました')).catch(()=>fallbackCopy(text))}else fallbackCopy(text)}
+function fallbackCopy(text){const el=document.createElement('textarea');el.value=text;el.style.position='fixed';el.style.opacity='0';document.body.appendChild(el);el.select();try{document.execCommand('copy');tell('結果をコピーしました')}catch(e){tell('コピーできませんでした')}el.remove()}
+$('range').addEventListener('change',e=>{state.range=e.target.value;if(state.range!=='all')state.count=10;renderCount()});document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{state.mode=b.dataset.mode;renderModeHint()}));$('speed').addEventListener('input',e=>{state.rate=Number(e.target.value);$('speed-value').textContent=state.rate.toFixed(2)+'×'});$('voice').addEventListener('change',e=>{if(!voiceCatalog[e.target.value])return;state.voiceGender=e.target.value;state.selectedVoice=voiceCatalog[state.voiceGender];stopAudio()});$('voice-preview').addEventListener('click',()=>{stopAudio();const token=state.audioToken;speakText('Hello, everyone! Welcome to English listening practice.',token,state.rate,ok=>{if(!ok)tell('音声が出ません。別の英語音声を選んでください。')})});$('start-btn').addEventListener('click',start);$('play-btn').addEventListener('click',beginPlay);$('show-choices-btn').addEventListener('click',revealChoices);$('skip-btn').addEventListener('click',()=>recordAnswer(null));$('next-btn').addEventListener('click',onNext);$('quit-btn').addEventListener('click',()=>{if(confirm('学習を中断してトップに戻りますか？ 途中の結果は保存されません。'))goHome()});$('repeat-btn').addEventListener('click',start);$('home-btn').addEventListener('click',goHome);$('copy-btn').addEventListener('click',copyScore);document.addEventListener('keydown',e=>{if($('quiz-screen').hidden||e.ctrlKey||e.metaKey||e.altKey||e.repeat)return;const target=e.target;if(['INPUT','SELECT','TEXTAREA'].includes(target.tagName))return;if(e.code==='Space'){e.preventDefault();if(!state.speaking)beginPlay();return}if(e.key==='Enter'&&state.finished){e.preventDefault();onNext();return}const key=e.key.toUpperCase();if(['A','B','C','D'].includes(key)&&!state.finished&&!$('choices-area').hidden){recordAnswer(state.currentOptions[ALL_LETTERS.indexOf(key)])}});
+renderLevels();setLevel(0);renderCount();renderModeHint();refreshVoices();if('speechSynthesis' in window){speechSynthesis.onvoiceschanged=refreshVoices;setTimeout(refreshVoices,350);setTimeout(refreshVoices,1000)}
+</script>
+</body>
+</html>
